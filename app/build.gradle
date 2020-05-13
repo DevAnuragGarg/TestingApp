@@ -42,6 +42,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerviewVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
+    // fragment
+    implementation "androidx.fragment:fragment-ktx:$rootProject.testFragment"
 
     // test junit
     testImplementation "junit:junit:$rootProject.jUnit"

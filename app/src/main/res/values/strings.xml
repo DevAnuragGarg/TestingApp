@@ -2,6 +2,6 @@
     <string name="app_name">TestingApp</string>
 
     <string name="detail_label">Detail Screen</string>
-    <string name="settings_label">Setting Screen</string>
+    <string name="settings_label">Home Fragment</string>
     <string name="detail_frag_text">Hi, reached detail screen</string>
 </resources>

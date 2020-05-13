@@ -3,6 +3,7 @@ package com.intact.testingapp.ui.activity
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -74,5 +75,23 @@ class HomeActivityTest {
                 )
             )
         )
+    }
+
+    @Test
+    fun testing_detail_back_navigation() {
+        onView(withId(R.id.next_button)).perform(click())
+        onView(withId(R.id.detail_label_tv)).check(
+            matches(
+                withText(
+                    ApplicationProvider.getApplicationContext<Context>().resources.getString(
+                        R.string.detail_frag_text
+                    )
+                )
+            )
+        )
+
+        pressBack()
+
+        onView(withId(R.id.hello_world_tv)).check(matches(isDisplayed()))
     }
 }

@@ -23,15 +23,46 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // helper files
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerviewVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+
+
+    // test junit
+    testImplementation "junit:junit:$rootProject.jUnit"
+
+    // top three libraries are added to remove the boilerplate code
+    androidTestImplementation "androidx.test:rules:$rootProject.testRules"
+
+    // test android x core
+    testImplementation 'androidx.test:core:' + rootProject.testCore
+    androidTestImplementation 'androidx.test:core:' + rootProject.testCore
+
+    // androidX ktx library i.e. ActivityScenario
+    androidTestImplementation "androidx.test:core-ktx:$rootProject.testCoreKtx"
+
+    // test android extension junit
+    testImplementation 'androidx.test.ext:junit:' + rootProject.jUnitExt
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.jUnitExt"
+
+    // test espresso
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso"
+
+    // test dependency for fragment
+    debugImplementation "androidx.fragment:fragment-testing:$rootProject.testFragment"
 }

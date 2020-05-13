@@ -1,7 +1,8 @@
 package com.intact.testingapp.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.intact.testingapp.R
 
 class DetailActivity : AppCompatActivity() {
 

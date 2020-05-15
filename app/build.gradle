@@ -37,6 +37,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
 
+    // espresso intent
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$rootProject.espressoIntent"
+
     // helper files
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
     implementation "androidx.recyclerview:recyclerview:$rootProject.recyclerviewVersion"
@@ -50,6 +53,7 @@ dependencies {
 
     // top three libraries are added to remove the boilerplate code
     androidTestImplementation "androidx.test:rules:$rootProject.testRules"
+    androidTestImplementation "androidx.test:runner:$rootProject.testRules"
 
     // test android x core
     testImplementation 'androidx.test:core:' + rootProject.testCore

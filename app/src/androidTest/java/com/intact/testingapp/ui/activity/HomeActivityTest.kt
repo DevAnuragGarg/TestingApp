@@ -1,15 +1,20 @@
 package com.intact.testingapp.ui.activity
 
 import android.content.Context
+import android.content.Intent
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.intent.matcher.IntentMatchers
+import androidx.test.espresso.intent.rule.IntentsTestRule
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.intact.testingapp.R
+import org.hamcrest.CoreMatchers.allOf
+import org.hamcrest.Matcher
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -53,9 +58,22 @@ class HomeActivityTest {
     @get:Rule
     val rule = ActivityScenarioRule(HomeActivity::class.java)
 
+    @get:Rule
+    val intentsTestRule = IntentsTestRule(HomeActivity::class.java)
+
     @Test
     fun test_home_hello_world() {
         onView(withId(R.id.hello_world_tv)).check(matches(withText("Hello World!")))
+    }
+
+    @Test
+    fun test_detail_activity_intent() {
+        val expectedIntent: Matcher<Intent> = allOf(
+            IntentMatchers.hasExtra("FirstArg", "Anurag")
+        )
+
+        val value: Float = 10F
+        val abc = value + 10
     }
 
     @Test

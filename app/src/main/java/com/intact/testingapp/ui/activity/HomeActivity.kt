@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
-import androidx.fragment.app.replace
 import com.intact.testingapp.R
 import com.intact.testingapp.ui.fragment.BaseFragmentFactory
 import com.intact.testingapp.ui.fragment.HomeFragment
@@ -22,8 +21,10 @@ class HomeActivity : AppCompatActivity() {
 
         // show the fragment
         if (savedInstanceState == null) {
+            val bundle = Bundle()
+            bundle.putInt("MOVIE_ID", 1)
             supportFragmentManager.commit {
-                replace<HomeFragment>(R.id.fragment_container)
+                replace(R.id.fragment_container, HomeFragment::class.java, bundle)
             }
         }
 
